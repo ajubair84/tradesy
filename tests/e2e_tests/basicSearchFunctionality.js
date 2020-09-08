@@ -29,26 +29,24 @@ after: browser => {
       .waitForElementVisible('@shoppingCartH1')
   },
 
-  'Click Shop Now Button': browser => {
-    browser.page.shoppingCart()
-      .waitForElementVisible('@shopNowButton')
-      .click('@shopNowButton')
-  },
-
-  'Add a item from new arrivals page and navigate to Shopping cart page': browser => {
-    browser.page.header().waitForElementVisible('@categoryHeader')
-    browser.page.newArrivals().click('@firstItem')
-    browser.page.pdp()
-        .waitForElementVisible('@addToBagButton')
-        .click('@addToBagButton')
-    browser.page.shoppingCart()
-        .waitForElementVisible('@shoppingCartH3')
-  },
-
-  'validate shopping cart page': browser => {
+  'Validate search input box': browser => {
     browser.page.header()
-      .waitForElementVisible('@shoppingBagCount')
-      .expect.element('@shoppingBagCount').text.to.equals('1')
+      .waitForElementVisible('@searchInput')
+      .assert.attributeContains('@searchInput', 'placeholder', "Search 'Louis Vuitton Totes'")
+      .click('@searchInput')
+      .waitForElementVisible('@searchSuggestionList')
+  },
+
+  'Perform a search': browser => {
+    browser.page.header()
+      .setValue('@searchInput', 'Louis Vuitton Totes')
+      .click('@searchButton')
+  },
+
+  'validate search results page': browser => {
+    browser.page.header()
+      .waitForElementVisible('@categoryHeader')
+      .expect.element('@categoryHeader').text.to.contain('Louis Vuitton Totes')
   },
 
 }

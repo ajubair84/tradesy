@@ -1,10 +1,8 @@
 module.exports = {
     elements: {
         firstItem: {
-            selector: '//div[@id="items-container-grid"]/div[1]',
+            selector: '//div[@id="items-container-grid"]/div[2]',
             locateStrategy: 'xpath',
         },
-        newArrivalsHeader: '[id=category-header]',
-
     }
 }
