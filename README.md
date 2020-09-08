@@ -4,14 +4,17 @@ How to run e2e test:
 
 - git clone https://github.com/ajubair84/tradesy.git
 - npm install
-- npm install nightwatch -g
-- nightwatch <test/path.js> (e.g tests/e2e_tests/addItemToCart.js)
+- npm install nightwatch -g or --save-dev
+- nightwatch <test/path.js> (e.g nightwatch tests/e2e_tests/addItemToCart.js)
+
+Nightwatch documentation https://nightwatchjs.org/gettingstarted/installation/
 
 If I had more time:
 
 	- Create reusble functions (not too use cases found with the two tests)
 	- Use tags to run tests based on (Smoke, regression, browsers, environment)
 	- Create scripts to run all tests
+
 
 Test Cases: https://docs.google.com/spreadsheets/d/1SQzIs7lXIxjQQTVCrcLXqA5awEgwXOk94516azUwV60/edit#gid=0
 
